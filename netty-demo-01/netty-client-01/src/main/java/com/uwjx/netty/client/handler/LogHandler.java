@@ -48,7 +48,9 @@ public class LogHandler extends ChannelInboundHandlerAdapter {
         ByteBuf byteBuf = (ByteBuf) msg;
         String receiveMsg = byteBuf.toString(CharsetUtil.UTF_8);
         log.warn("客户端接收到消息 -> {}", receiveMsg);
-        byteBuf.release();
+//        byteBuf.release();
+
+        super.channelRead(ctx , msg);
     }
 
     @Override
