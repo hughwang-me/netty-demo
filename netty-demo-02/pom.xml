@@ -7,31 +7,23 @@
         <artifactId>netty-demo</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>netty-demo-01</artifactId>
+    <artifactId>netty-demo-02</artifactId>
     <version>1.0.0</version>
-    <name>netty-demo-01</name>
+    <name>netty-demo-02</name>
     <packaging>pom</packaging>
-    <description>Netty 基本使用</description>
+    <description>Netty 整合 RocketMQ</description>
+
+    <modules>
+        <module>netty-client-02</module>
+        <module>netty-server-02</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
-    <modules>
-        <module>netty-client-01</module>
-        <module>netty-server-01</module>
-    </modules>
-
     <dependencies>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

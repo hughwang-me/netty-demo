@@ -4,34 +4,18 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.uwjx</groupId>
-        <artifactId>netty-demo</artifactId>
+        <artifactId>netty-demo-01</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>netty-demo-01</artifactId>
+    <artifactId>netty-client-01</artifactId>
     <version>1.0.0</version>
-    <name>netty-demo-01</name>
-    <packaging>pom</packaging>
-    <description>Netty 基本使用</description>
+    <name>netty-client-01</name>
+    <description>Netty 基本使用 客户端</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
-    <modules>
-        <module>netty-client-01</module>
-        <module>netty-server-01</module>
-    </modules>
-
     <dependencies>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

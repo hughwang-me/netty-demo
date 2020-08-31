@@ -19,11 +19,24 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <modules>
+        <module>netty-demo-01</module>
+        <module>netty-demo-02</module>
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.51.Final</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.projectlombok</groupId>
