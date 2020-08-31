@@ -1,10 +1,12 @@
 package com.uwjx.netty.server.handler;
 
+import com.uwjx.netty.server.core.CtxManager;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.util.CharsetUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.Charset;
@@ -14,6 +16,9 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @ChannelHandler.Sharable
 public class LogHandler extends ChannelInboundHandlerAdapter {
+
+    @Autowired
+    private CtxManager ctxManager;
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
@@ -32,6 +37,8 @@ public class LogHandler extends ChannelInboundHandlerAdapter {
 //                ctx.close(); //关闭连接
             }
         });
+
+        ctxManager.add(ctx);
     }
 
     @Override
@@ -46,6 +53,12 @@ public class LogHandler extends ChannelInboundHandlerAdapter {
         String receiveMsg = byteBuf.toString(CharsetUtil.UTF_8);
         log.warn("服务端接收到消息 -> {}", receiveMsg);
         byteBuf.release();
+
+        if(receiveMsg.equals("listAll")){
+            ctxManager.listAllChannels();
+        }else if(receiveMsg.equals("listActive")){
+            ctxManager.listActiveChannels();
+        }
     }
 
     @Override
@@ -72,5 +85,6 @@ public class LogHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
         log.warn("日志处理 -> channelUnregistered");
+        ctxManager.remove(ctx);
     }
 }

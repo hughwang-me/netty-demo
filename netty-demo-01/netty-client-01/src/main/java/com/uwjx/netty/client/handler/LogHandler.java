@@ -24,6 +24,20 @@ public class LogHandler extends ChannelInboundHandlerAdapter {
         byteBuf.writeBytes(welcomeMsg.getBytes(CharsetUtil.UTF_8));
         ctx.writeAndFlush(byteBuf);
         log.warn("客户端向服务端发送消息完毕 : {}" , welcomeMsg);
+
+        //发送 listAll 消息
+//        String listAllMsg = "listAll";
+//        ByteBuf listAllMsgBuf = ByteBufAllocator.DEFAULT.buffer(listAllMsg.getBytes().length);
+//        listAllMsgBuf.writeBytes(listAllMsg.getBytes(CharsetUtil.UTF_8));
+//        ctx.writeAndFlush(listAllMsgBuf);
+//        log.warn("客户端向服务端发送消息完毕 : {}" , listAllMsg);
+
+        //发送 listActive 消息
+        String listActiveMsg = "listActive";
+        ByteBuf listActiveMsgBuf = ByteBufAllocator.DEFAULT.buffer(listActiveMsg.getBytes().length);
+        listActiveMsgBuf.writeBytes(listActiveMsg.getBytes(CharsetUtil.UTF_8));
+        ctx.writeAndFlush(listActiveMsgBuf);
+        log.warn("客户端向服务端发送消息完毕 : {}" , listActiveMsg);
     }
 
     @Override

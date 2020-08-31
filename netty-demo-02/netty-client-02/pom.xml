@@ -17,6 +17,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.uwjx</groupId>
+            <artifactId>netty-client-01</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 
